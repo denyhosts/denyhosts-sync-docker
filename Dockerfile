@@ -9,10 +9,8 @@ RUN apt-get update \
  && echo "deb http://www.vanbest.org/reprepro/ unstable main contrib non-free" >> /etc/apt/sources.list \
  && curl http://www.vanbest.org/janpascal/debian-archive-key.asc | apt-key add - \
  && apt-get update \
- && apt-get -qy --no-install-recommends --no-install-suggests install denyhosts-server \
- && apt-get -qy purge gnupg2 \
- && rm -rf /var/lib/apt/lists/*
-
+ && apt-get -qy --no-install-recommends --no-install-suggests install denyhosts-server
+ 
 RUN ln -sf /dev/stdout /var/log/denyhosts-server/denyhosts-server.log
 
 COPY run.sh /run.sh
